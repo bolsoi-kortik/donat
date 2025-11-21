@@ -1,0 +1,353 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Донат-Рейдер | Пиратский рейд добра</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        pink: {
+                            500: '#ec4899',
+                            600: '#db2777',
+                            neon: '#ff00ff',
+                        },
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #000000; color: white; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        /* Неоновое свечение текста */
+        .neon-text {
+            text-shadow: 0 0 10px rgba(236, 72, 153, 0.7), 0 0 20px rgba(236, 72, 153, 0.5);
+        }
+        
+        /* Эффект стекла */
+        .glass-panel {
+            background: rgba(20, 20, 20, 0.8);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(236, 72, 153, 0.3);
+            box-shadow: 0 0 30px rgba(236, 72, 153, 0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #ec4899, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: gradient 3s linear infinite;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+    </style>
+</head>
+<body class="selection:bg-pink-500 selection:text-white">
+
+    <!-- Фон: Анимированные размытые круги -->
+<div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-pink-600/20 blur-[120px] rounded-full"></div>
+        <div class="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-900/20 blur-[100px] rounded-full"></div>
+    </div>
+
+    <!-- Навигация -->
+<nav class="fixed w-full z-50 transition-all duration-300 py-4" id="navbar">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <div class="relative w-10 h-10">
+                    <!-- Иконка пончика в навигации -->
+<svg viewBox="0 0 100 100" class="w-full h-full drop-shadow-[0_0_10px_#ec4899]">
+                        <circle cx="50" cy="50" r="40" fill="#ec4899" />
+                        <circle cx="50" cy="50" r="15" fill="#000" />
+                        <path d="M50 20 L50 30 M80 50 L70 50 M50 80 L50 70 M20 50 L30 50" stroke="white" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <span class="text-xl md:text-2xl font-black italic tracking-widest uppercase text-white">
+                    Донат<span class="text-pink-500">-</span>Рейдер
+                </span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#concept" class="font-bold uppercase text-sm tracking-widest hover:text-pink-500 transition-colors">Суть</a>
+                <a href="#trust" class="font-bold uppercase text-sm tracking-widest hover:text-pink-500 transition-colors">Безопасность</a>
+                <a href="#media" class="font-bold uppercase text-sm tracking-widest hover:text-pink-500 transition-colors">Рейды</a>
+                <a href="https://t.me/tribute/app?startapp=svxB" target="_blank" class="px-6 py-2 bg-pink-600 hover:bg-pink-500 text-white rounded-full font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(236,72,153,0.6)] transition-transform hover:scale-105 flex items-center gap-2">
+                    <i data-lucide="skull" size="18"></i> Вступить
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Главный заголовок и Донат-Рейдер (Пончик) -->
+<header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center gap-12">
+            
+            <div class="md:w-1/2 text-center md:text-left relative z-10">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full border border-pink-500/50 bg-pink-900/20 text-pink-300 text-xs font-bold mb-6 uppercase tracking-wider animate-pulse">
+                    <i data-lucide="anchor" size="14"></i> Пиратский рейд добра
+                </div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-tight mb-10 uppercase italic">
+                    Меняем <br/>
+                    <span class="gradient-text neon-text">Судьбы</span><br/>
+                    За 5 минут
+                </h1>
+                <p class="text-lg text-gray-300 mb-8 max-w-xl mx-auto md:mx-0 leading-relaxed">
+                    Мы — сообщество <b class="text-pink-400">Донат-рейдеров</b>. <br/>
+                    Собираемся в Telegram. Выбираем стримера. Атакуем донатами. Дарим свободу.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="https://t.me/tribute/app?startapp=svxB" target="_blank" class="px-8 py-4 bg-pink-600 hover:bg-pink-500 rounded-xl font-black text-lg uppercase tracking-widest shadow-[0_0_30px_rgba(236,72,153,0.5)] transition-all hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <i data-lucide="zap" class="fill-white"></i> Стать Рейдером
+                    </a>
+                    <a href="#media" class="px-8 py-4 bg-transparent border-2 border-pink-500/50 text-pink-400 hover:text-white hover:bg-pink-500/20 rounded-xl font-bold text-lg uppercase tracking-widest transition-all flex items-center justify-center gap-3">
+                        <i data-lucide="youtube"></i> Смотреть
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Анимация и SVG Пончика (Донат-Рейдер) -->
+<div class="md:w-1/2 relative flex justify-center items-center">
+                <div class="absolute w-[500px] h-[500px] border border-pink-600/20 rounded-full animate-spin-slow border-dashed"></div>
+                <div class="absolute w-[400px] h-[400px] border border-purple-600/30 rounded-full animate-pulse-slow"></div>
+                
+                <!-- Анимированный SVG Пончик -->
+<div class="relative w-72 h-72 md:w-96 md:h-96 animate-float filter drop-shadow-[0_0_40px_rgba(236,72,153,0.4)]">
+                    <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        
+                        <!-- Тесто (База: r=160, цвет #D4A276) -->
+                        <circle cx="200" cy="200" r="160" fill="#D4A276"/>
+                        
+                        <!-- Розовая Глазурь (r=155, покрывает почти весь пончик, оставляя 5px края теста) -->
+                        <circle cx="200" cy="200" r="155" fill="#FF00CC"/>
+                        
+                        <!-- Отверстие (r=50) -->
+                        <circle cx="200" cy="200" r="50" fill="#000000"/>
+
+                        <!-- Пиратская маска и повязка на глаз -->
+                        <g transform="translate(0, -10)">
+                            <!-- Левый глаз (повязка) -->
+                            <path d="M60 150 H180 C190 150 190 220 120 220 C80 220 60 190 60 150 Z" fill="black" stroke="white" stroke-width="2"/>
+                            <!-- Правый глаз -->
+                            <path d="M220 150 H340 C340 190 320 220 280 220 C210 220 210 150 220 150 Z" fill="black" stroke="white" stroke-width="2"/>
+                            <!-- Переносица/Маска -->
+                            <path d="M180 160 Q200 140 220 160" stroke="white" stroke-width="4" fill="none"/>
+                            <!-- Шрамы (добавлено для рейдерского вида) -->
+                            <path d="M80 160 L160 200" stroke="#FF00CC" stroke-width="3" opacity="0.7"/>
+                            <path d="M240 160 L320 200" stroke="#FF00CC" stroke-width="3" opacity="0.7"/>
+                        </g>
+
+                        <!-- Ухмылка -->
+                        <path d="M150 280 Q200 310 250 280" stroke="white" stroke-width="6" stroke-linecap="round"/>
+
+                        <!-- Посыпка (Разные цвета) -->
+                        <rect x="120" y="80" width="20" height="8" rx="4" fill="#00FFFF" transform="rotate(-20 120 80)"/>
+                        <rect x="260" y="90" width="20" height="8" rx="4" fill="#FFFF00" transform="rotate(30 260 90)"/>
+                        <circle cx="200" cy="70" r="6" fill="#00FF00"/>
+                    </svg>
+                    
+                    <div class="absolute top-0 right-0 animate-bounce">
+                        <i data-lucide="palmtree" class="text-cyan-400 w-16 h-16 drop-shadow-[0_0_10px_#00FFFF]"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Секция: Концепт (План) -->
+<section id="concept" class="py-20 bg-pink-900/10 border-y border-pink-900/30">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black text-center uppercase italic mb-16 text-white">
+                Наш <span class="text-pink-500 neon-text">План</span>
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-4">
+                        <span class="text-6xl font-black text-pink-600/20">01</span>
+                        <i data-lucide="users" class="text-pink-500 w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white uppercase">Вступаешь в Клуб</h3>
+                    <p class="text-gray-400">Подписка через Tribute (1€). Безопасно. Ты получаешь звание Донат-рейдера.</p>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+                     <div class="flex justify-between items-start mb-4">
+                        <span class="text-6xl font-black text-pink-600/20">02</span>
+                        <i data-lucide="vote" class="text-cyan-400 w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white uppercase">Выбираем Цель</h3>
+                    <!-- ИСПРАВЛЕННЫЙ ТЕКСТ: Предлагаем стримеров в чате и голосуем. -->
+                    <p class="text-gray-400">Демократия. Предлагаем стримеров в чате и голосуем. Выбираем, чью жизнь изменим.</p>
+                </div>
+                
+                <div class="glass-panel p-8 rounded-3xl hover:-translate-y-2 transition-transform duration-300">
+                     <div class="flex justify-between items-start mb-4">
+                        <span class="text-6xl font-black text-pink-600/20">03</span>
+                        <i data-lucide="bomb" class="text-purple-500 w-10 h-10"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-white uppercase">Атака!</h3>
+                    <p class="text-gray-400">В один момент все отправляют донат стримеру. Смотрим на эмоции и радуемся.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция: Доверие и Безопасность -->
+<section id="trust" class="py-20 relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="glass-panel p-10 rounded-[2rem] flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/3 flex justify-center">
+                    <div class="w-40 h-40 bg-green-500/10 rounded-full flex items-center justify-center border-2 border-green-500/50 shadow-[0_0_40px_rgba(34,197,94,0.3)] animate-pulse">
+                        <i data-lucide="shield-check" class="text-green-400 w-20 h-20"></i>
+                    </div>
+                </div>
+                <div class="lg:w-2/3">
+                    <h2 class="text-4xl font-black text-white uppercase mb-8">Всё <span class="text-green-400 neon-text">Честно</span></h2>
+                    <ul class="space-y-6">
+                        <li class="flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="check" class="text-green-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Прямые Донаты</h4>
+                                <p class="text-gray-400">Деньги идут СРАЗУ стримеру через DonationAlerts. Мы не собираем общий банк.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="check" class="text-green-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Официальная Подписка</h4>
+                                <p class="text-gray-400">Через Tribute (партнер Telegram). Данные карт защищены.</p>
+                            </div>
+                        </li>
+                        <li class="flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center shrink-0 mt-1">
+                                <i data-lucide="check" class="text-green-400 w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-white">Я тоже участвую</h4>
+                                <p class="text-gray-400">Я вношу свои деньги в каждом рейде наравне со всеми.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция: Медиа (Рейды) -->
+<section id="media" class="py-20 bg-black relative">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-black uppercase italic mb-4 text-white">Наши <span class="text-pink-500 neon-text">Рейды</span></h2>
+            <p class="text-gray-400 mb-12 text-lg">Эмоции, ради которых мы это делаем.</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="rounded-2xl overflow-hidden border-2 border-pink-900 shadow-[0_0_30px_rgba(236,72,153,0.3)] hover:border-pink-500 transition-colors duration-300">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/jX2aL-K8sS0" title="Первый Рейд" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="bg-gray-900 p-4 text-left">
+                        <h3 class="font-bold text-white text-lg">Рейд #1: Начало</h3>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl overflow-hidden border-2 border-cyan-900 shadow-[0_0_30px_rgba(6,182,212,0.3)] hover:border-cyan-500 transition-colors duration-300">
+                    <div class="aspect-video w-full">
+                        <iframe class="w-full h-full" src="https://www.youtube.com/embed/3qRc8usq3iY" title="Второй Рейд" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div class="bg-gray-900 p-4 text-left">
+                        <h3 class="font-bold text-white text-lg">Рейд #2: Шок контент</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+               <a href="https://youtube.com/@k-nr-d" target="_blank" class="inline-flex items-center gap-2 text-pink-400 hover:text-white border-b-2 border-pink-400 hover:border-white pb-1 transition-all font-bold uppercase tracking-widest">
+                 Перейти на YouTube канал <i data-lucide="external-link" size="18"></i>
+               </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция: Присоединиться -->
+<section id="join" class="py-24 relative overflow-hidden bg-gradient-to-t from-pink-900/40 to-black">
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="max-w-3xl mx-auto glass-panel p-10 rounded-[3rem] mb-10 flex flex-col items-center justify-center gap-6">
+                
+                <i data-lucide="palmtree" class="w-16 h-16 text-pink-500 flex-shrink-0"></i>
+                
+                <h2 class="text-3xl sm:text-4xl md:text-6xl font-black uppercase italic text-white leading-tight">
+                    Готов к <br/>
+                    <span class="text-pink-500 block mt-2">Приключениям?</span>
+                </h2>
+
+                <p class="text-xl text-gray-300 max-w-lg mx-auto mt-2 leading-relaxed">
+                    Цена вопроса — 1€ в месяц (цена кофе). <br/>
+                    Результат — измененные судьбы.
+                </p>
+
+                <div class="mt-6 w-full">
+                    <a href="https://t.me/tribute/app?startapp=svxB" target="_blank" class="w-full md:w-auto inline-flex px-12 py-6 bg-pink-600 hover:bg-pink-500 text-white font-black text-xl uppercase tracking-widest rounded-2xl shadow-[0_0_40px_rgba(236,72,153,0.6)] transition-transform hover:scale-105 items-center justify-center gap-3">
+                        <i data-lucide="zap"></i> Подписаться (Telegram)
+                    </a>
+                    <div class="text-gray-500 text-sm mt-4">Оплата картами РФ поддерживается через Tribute</div>
+                </div>
+            </div>
+
+            <div class="mt-16 pt-10 border-t border-gray-700/50 max-w-3xl mx-auto">
+                <h3 class="text-lg font-bold text-white mb-4">Поддержать автора проекта</h3>
+                <a href="https://t.me/tribute/app?startapp=g2Xc" target="_blank" class="inline-flex items-center gap-3 px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-xl transition-colors text-white font-bold border border-gray-700">
+                        <i data-lucide="coins" class="text-yellow-400"></i>
+                        <span>Отправить донат на развитие</span>
+                </a>
+            </div>
+            
+            <div class="mt-12 text-gray-500 text-sm max-w-3xl mx-auto">
+                © 2023-2025 Донат-Рейдер. С Филиппин с любовью 🌴 <br/>
+                <span class="opacity-50">Помните: мы меняем мир по одному рейду за раз.</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Скрипт для иконок и эффекта навигации при скролле -->
+    <script>
+        lucide.createIcons();
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-black/90', 'backdrop-blur-lg', 'border-b', 'border-pink-900/30');
+            } else {
+                nav.classList.remove('bg-black/90', 'backdrop-blur-lg', 'border-b', 'border-pink-900/30');
+            }
+        });
+    </script>
+</body>
+</html>
